@@ -29,8 +29,8 @@ class Router {
 
   // Manejar la ruta actual
   handleRoute() {
-    const path = window.location.pathname;
-    const component = this.routes[path] || this.routes['/404'];
+    const path = window.location.hash.slice(1) || '#/';
+    const component = this.routes[path] || this.routes['#/404'];
     
     if (component) {
       this.currentRoute = path;
