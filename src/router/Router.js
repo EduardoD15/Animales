@@ -21,9 +21,13 @@ class Router {
   // Detectar la base del proyecto
   detectBasePath() {
     const pathname = window.location.pathname;
-    // Si la URL contiene /Animales/, es GitHub Pages
+    // Si contiene /Animales/, es GitHub Pages
     if (pathname.includes('/Animales/')) {
       return '/Animales';
+    }
+    // Si contiene /project/, es Live Server
+    if (pathname.includes('/project/')) {
+      return '/project';
     }
     return '';
   }
