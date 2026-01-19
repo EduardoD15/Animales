@@ -45,14 +45,23 @@ class Router {
 
   // Manejar la ruta actual
   handleRoute() {
-    // Extraer el hash después del basePath
-    const fullPath = window.location.pathname + window.location.hash;
-    const path = window.location.hash.slice(1) || '#/';
-    const component = this.routes[path] || this.routes['#/404'];
+    // Obtener el hash y limpiar la barra inicial si existe
+    let path = window.location.hash.slice(1); // Quitar el #
+    if (!path || path === '') {
+      path = '/';
+    }
+    
+    console.log('Hash actual:', window.location.hash);
+    console.log('Ruta limpia:', path);
+    console.log('Rutas disponibles:', this.routes);
+    
+    const component = this.routes['#' + path] || this.routes['#/'] || this.routes['#/404'];
     
     if (component) {
       this.currentRoute = path;
       this.render(component);
+    } else {
+      console.warn('Componente no encontrado para la ruta:', path);
     }
   }
 
