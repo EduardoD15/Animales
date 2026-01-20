@@ -5,7 +5,19 @@ class AboutPage extends HTMLElement {
   }
 
   connectedCallback() {
+    this.loadStyles();
     this.render();
+  }
+
+  loadStyles() {
+    // Evitar cargar el CSS múltiples veces
+    if (!document.getElementById('about-styles')) {
+      const link = document.createElement('link');
+      link.id = 'about-styles';
+      link.rel = 'stylesheet';
+      link.href = 'src/styles/about.css';
+      document.head.appendChild(link);
+    }
   }
 
   render() {

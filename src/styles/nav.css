@@ -1,0 +1,248 @@
+/* ============================================
+   ANIMACIONES
+   ============================================ */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+}
+
+@keyframes fadeInText {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ============================================
+   NAVBAR - CONTENEDOR PRINCIPAL
+   ============================================ */
+.navbar {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.34) 0%,
+    rgba(0, 0, 0, 0.663068) 60.96%,
+    rgba(0, 0, 0, 0.87) 100%
+  );
+  backdrop-filter: blur(9.1548px);
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100px;
+  position: fixed;
+  z-index: 1000;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar.expanded {
+  width: 240px;
+}
+
+/* ============================================
+   NAVBAR - MARCA Y TOGGLE
+   ============================================ */
+.nav-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.navbar.expanded .nav-brand {
+  justify-content: flex-start;
+}
+
+.nav-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.nav-toggle:hover {
+  transform: scale(1.1);
+  color: #4CAF50;
+}
+
+.nav-title {
+  font-size: 1.2rem;
+  display: none;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.navbar.expanded .nav-title {
+  display: block;
+  animation: fadeInText 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.15s both;
+}
+
+/* ============================================
+   NAVBAR - CATEGORÍAS
+   ============================================ */
+.nav-categories {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 0;
+  margin: 2rem 0;
+  width: 100%;
+  align-items: center;
+}
+
+.navbar.expanded .nav-categories {
+  align-items: flex-start;
+}
+
+.nav-categories li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+  text-align: center;
+  cursor: pointer;
+  opacity: 0.9;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.navbar.expanded .nav-categories li {
+  justify-content: flex-start;
+  font-size: 0.9rem;
+}
+
+.nav-categories li:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+.nav-categories li i {
+  font-size: 1.4rem;
+  min-width: 1.4rem;
+}
+
+.nav-categories li span {
+  display: none;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.navbar.expanded .nav-categories li:nth-child(1) span {
+  display: inline;
+  animation: fadeInText 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.1s both;
+}
+
+.navbar.expanded .nav-categories li:nth-child(2) span {
+  display: inline;
+  animation: fadeInText 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.15s both;
+}
+
+.navbar.expanded .nav-categories li:nth-child(3) span {
+  display: inline;
+  animation: fadeInText 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
+}
+
+.navbar.expanded .nav-categories li:nth-child(4) span {
+  display: inline;
+  animation: fadeInText 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.25s both;
+}
+
+.navbar.expanded .nav-categories li:nth-child(5) span {
+  display: inline;
+  animation: fadeInText 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
+}
+
+.navbar.expanded .nav-categories li:nth-child(6) span {
+  display: inline;
+  animation: fadeInText 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.35s both;
+}
+
+.navbar.expanded .nav-categories li:nth-child(7) span {
+  display: inline;
+  animation: fadeInText 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.4s both;
+}
+
+.navbar:not(.expanded) .nav-categories li span {
+  animation: fadeOut 0.3s ease both;
+}
+
+/* ============================================
+   NAVBAR - ENLACES
+   ============================================ */
+.nav-links {
+  list-style: none;
+  gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.navbar.expanded .nav-links {
+  align-items: flex-start;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: opacity 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+.nav-links a:hover {
+  opacity: 0.8;
+  transform: translateX(5px);
+}
+
+.nav-links a span {
+  display: none;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.navbar.expanded .nav-links a span {
+  display: inline;
+  animation: fadeInText 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.45s both;
+}
+
+.navbar:not(.expanded) .nav-links a span {
+  animation: fadeOut 0.3s ease both;
+}

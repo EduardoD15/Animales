@@ -5,7 +5,19 @@ class HomePage extends HTMLElement {
   }
 
   connectedCallback() {
+    this.loadStyles();
     this.render();
+  }
+
+  loadStyles() {
+    // Evitar cargar el CSS múltiples veces
+    if (!document.getElementById('home-styles')) {
+      const link = document.createElement('link');
+      link.id = 'home-styles';
+      link.rel = 'stylesheet';
+      link.href = 'src/styles/home.css';
+      document.head.appendChild(link);
+    }
   }
 
   render() {

@@ -1,0 +1,28 @@
+/* Estilos específicos para AboutPage */
+
+.about-page {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.about-page h2 {
+  font-size: 2.5rem;
+  color: white;
+  text-align: center;
+}
+
+.about-page p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+.about-section {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-left: 4px solid #4CAF50;
+  border-radius: 5px;
+}
