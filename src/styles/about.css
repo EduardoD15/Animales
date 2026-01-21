@@ -1,10 +1,31 @@
 /* Estilos específicos para AboutPage */
 
+.page {
+  padding-left: 120px;
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding-left: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
 .about-page {
   padding: 2rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .about-page {
+    max-width: 100%;
+    width: 100%;
+  }
 }
 
 .about-page h2 {

@@ -20,15 +20,6 @@ class AppNav extends HTMLElement {
     }
   }
 
-  setupClickOutside() {
-    document.addEventListener('click', (e) => {
-      const navbar = this.querySelector('.navbar');
-      if (this.isExpanded && navbar && !navbar.contains(e.target)) {
-        this.toggleNavbar();
-      }
-    });
-  }
-
   toggleNavbar() {
     this.isExpanded = !this.isExpanded;
     const navbar = this.querySelector('.navbar');
@@ -36,13 +27,24 @@ class AppNav extends HTMLElement {
     
     if (this.isExpanded) {
       navbar.classList.add('expanded');
+      document.body.classList.add('nav-open');
       toggleIcon.classList.remove('fa-bars');
       toggleIcon.classList.add('fa-xmark');
     } else {
       navbar.classList.remove('expanded');
+      document.body.classList.remove('nav-open');
       toggleIcon.classList.remove('fa-xmark');
       toggleIcon.classList.add('fa-bars');
     }
+  }
+
+  setupClickOutside() {
+    document.addEventListener('click', (e) => {
+      const navbar = this.querySelector('.navbar');
+      if (this.isExpanded && navbar && !navbar.contains(e.target)) {
+        this.toggleNavbar();
+      }
+    });
   }
 
   render() {

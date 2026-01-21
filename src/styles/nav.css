@@ -1,4 +1,23 @@
 /* ============================================
+   RESET Y CONFIGURACIÓN BASE
+   ============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f5f5;
+}
+
+.container-first {
+  display: flex;
+}
+
+/* ============================================
    ANIMACIONES
    ============================================ */
 @keyframes slideInLeft {
@@ -13,13 +32,14 @@
 }
 
 @keyframes fadeOut {
-  from {
+  0% {
     opacity: 1;
-    transform: translateX(0);
   }
-  to {
+  50% {
+    opacity: 0.6;
+  }
+  100% {
     opacity: 0;
-    transform: translateX(-20px);
   }
 }
 
@@ -56,10 +76,155 @@
   position: fixed;
   z-index: 1000;
   transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  left: 0;
+  top: 0;
 }
 
 .navbar.expanded {
-  width: 240px;
+  width: 250px;
+}
+
+/* ============================================
+   RESPONSIVE - HAMBURGER QUE DESAPARECE EN MÓVIL
+   ============================================ */
+@media (max-width: 768px) {
+  .navbar {
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    border-radius: 50%;
+    z-index: 2000;
+  }
+
+  .navbar.expanded {
+    width: 80vw;
+    max-width: 300px;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-radius: 0;
+  }
+
+  .nav-brand {
+    display: flex !important;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .navbar:not(.expanded) .nav-brand {
+    width: auto;
+    display: flex !important;
+  }
+
+  .navbar:not(.expanded) .nav-brand > * {
+    display: none;
+  }
+
+  .navbar:not(.expanded) .nav-brand .nav-toggle {
+    display: flex !important;
+  }
+
+  .navbar.expanded .nav-brand {
+    justify-content: flex-start;
+    display: flex !important;
+  }
+
+  .navbar.expanded .nav-title {
+    display: block !important;
+  }
+
+  .nav-toggle {
+    display: flex !important;
+  }
+
+  .nav-categories {
+    display: none !important;
+  }
+
+  .navbar.expanded .nav-categories {
+    display: flex !important;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0;
+    margin: 2rem 0;
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .nav-categories li {
+    font-size: 0.9rem;
+  }
+
+  .navbar.expanded .nav-categories li {
+    justify-content: flex-start;
+    font-size: 0.9rem;
+  }
+
+  .nav-categories li span {
+    display: none !important;
+  }
+
+  .navbar.expanded .nav-categories li span {
+    display: inline !important;
+    animation: fadeInText 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.1s both;
+  }
+
+  .nav-links {
+    display: none !important;
+  }
+
+  .navbar.expanded .nav-links {
+    display: flex !important;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .nav-links a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .nav-links a span {
+    display: none !important;
+  }
+
+  .navbar.expanded .nav-links a span {
+    display: inline !important;
+    animation: fadeInText 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.45s both;
+  }
+
+  /* Backdrop cuando navbar está abierto */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  body.nav-open::before {
+    opacity: 1;
+    pointer-events: all;
+  }
 }
 
 /* ============================================
@@ -102,11 +267,16 @@
   padding: 0;
   white-space: nowrap;
   overflow: hidden;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .navbar.expanded .nav-title {
   display: block;
   animation: fadeInText 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.15s both;
+}
+
+.navbar:not(.expanded) .nav-title {
+  animation: fadeOut 0.5s ease both;
 }
 
 /* ============================================
@@ -158,6 +328,7 @@
   display: none;
   white-space: nowrap;
   overflow: hidden;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .navbar.expanded .nav-categories li:nth-child(1) span {
@@ -196,7 +367,7 @@
 }
 
 .navbar:not(.expanded) .nav-categories li span {
-  animation: fadeOut 0.3s ease both;
+  animation: fadeOut 0.5s ease both;
 }
 
 /* ============================================
@@ -236,6 +407,7 @@
   display: none;
   white-space: nowrap;
   overflow: hidden;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .navbar.expanded .nav-links a span {
@@ -244,5 +416,5 @@
 }
 
 .navbar:not(.expanded) .nav-links a span {
-  animation: fadeOut 0.3s ease both;
+  animation: fadeOut 0.5s ease both;
 }

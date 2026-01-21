@@ -9,7 +9,8 @@
   background-size: cover;
 
   filter: blur(5px);
-  transform: scale(1.1); /* evita bordes blancos */
+  transform: scale(1.1);
+  /* evita bordes blancos */
   z-index: 0;
 }
 
@@ -18,12 +19,13 @@
   position: absolute;
   inset: 0;
 
-  background: rgba(0, 0, 0, 0.30); /* controla la oscuridad */
+  background: rgba(0, 0, 0, 0.30);
+  /* controla la oscuridad */
   z-index: 1;
 }
 
 /* Contenido encima */
-.page > * {
+.page>* {
   position: relative;
   z-index: 10;
 }
@@ -32,7 +34,193 @@
   position: relative;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
-  
+  overflow-x: hidden;
 }
 
+.home--content {
+  background-image: url("../assets/frida-bredesen-Pomm1KDR9yY-unsplash\ 2.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+/*
+
+.home-page {
+  padding-left:150px ;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 0 auto;
+  max-width: 100%;
+}
+@media (max-width: 768px) {
+  .home-page {
+    padding-left: 0;
+    width: 100vw;
+    display: flex;
+    align-items: center; 
+  }
+  .home--content{
+    width: 85%;
+  }
+}
+  @media (max-width: 768px) {
+  .page {
+    padding-left: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+  */
+
+/*Grid*/
+
+.grid-icono {
+  color: white;
+  display: contents;
+  font-size: 34px;
+}
+
+.grid-natural {
+  font-size: 20px;
+  font-weight: bold;
+  word-spacing: 20%;
+}
+
+.grid--content-1 {
+  display: flex;
+  gap: 20px;
+}
+
+.content--grid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.grid--content-1 {
+  display: flex;
+  width: 100%;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-explore {
+  font-style: normal;
+  font-weight: 900;
+  font-size: 21.9715px;
+  line-height: 26px;
+  letter-spacing: 2.375em;
+  background: linear-gradient(93.05deg, rgb(255, 255, 255) 4.45%, rgba(255, 255, 255, 0.87) 106.63%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  text-shadow: 9.1548px 4.51908px 21.056px rgba(0, 0, 0, 0.4);
+  top: 60px;
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.grid-wild {
+  text-align: center;
+  font-weight: 700;
+  font-size: 263.658px;
+  line-height: 309px;
+  background: linear-gradient(93.05deg, rgb(255, 255, 255) 4.45%, rgba(255, 255, 255, 0.836) 106.63%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  text-shadow: 9.1548px 4.51908px 21.056px rgba(0, 0, 0, 0.4);
+}
+
+.grid--content-2 {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.panter-h2 {
+  font-weight: 400;
+  font-size: 32.9573px;
+  line-height: 39px;
+  letter-spacing: 0.115em;
+}
+
+.Himalaya {
+  font-weight: 700;
+  font-size: 21.9715px;
+  line-height: 26px;
+
+}
+
+.life {
+
+  font-weight: 400;
+  font-size: 21.9715px;
+  line-height: 26px;
+  /* identical to box height */
+
+}
+
+.paraffo {
+  /* The snow leopard's fur is whitish to grey with black spots on head and neck, with larger rosettes on the back, flanks and bushy tail. The belly is whitish. Its eyes are pale green or grey in color. Its muzzle is short and its forehead domed. Its nasal cavities are large. */
+
+  max-width: 580.81px;
+
+
+  font-weight: 00;
+  font-size: 16.4786px;
+  line-height: 25px;
+  /* or 150% */
+  letter-spacing: 0.04em;
+
+}
+
+.content-p {
+  display: inline-block;
+  text-align: center;
+  position: relative;
+}
+
+.content-pp {
+
+  font-weight: 400;
+  font-size: 43.943px;
+  line-height: 51px;
+  /* identical to box height */
+  letter-spacing: -0.055em;
+
+  text-align: center;
+
+}
+
+
+.flex-content {
+  display: flex;
+  flex-direction: row;
+  gap: 80px;
+}
+
+
+.content-ss {
+  font-weight: 700;
+  font-size: 21.9715px;
+  line-height: 26px;
+  color: #cccbcbe8;
+  text-align: center;
+}
+
+
+
+/* Vector 9 */
